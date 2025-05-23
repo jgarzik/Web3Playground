@@ -466,8 +466,8 @@ export default function FoomPage() {
                 <div>
                   <h3 className="text-foreground font-medium mb-2">Minting Process:</h3>
                   <ul className="text-muted-foreground space-y-1 text-sm">
-                    <li>• Burn 3,000 HAIR tokens (~$0.30)</li>
-                    <li>• Burn 100 MAX tokens (~$0.20)</li>
+                    <li>• Burn 3,000 HAIR tokens</li>
+                    <li>• Burn 100 MAX tokens</li>
                     <li>• Receive unique Foom NFT</li>
                     <li>• Deterministic attribute generation</li>
                     <li>• Full ERC-721 transferability</li>
