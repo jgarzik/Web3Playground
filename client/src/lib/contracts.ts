@@ -69,7 +69,7 @@ export const HEMI_NETWORK = {
   chainId: 43111,
   name: "Hemi Network",
   rpcUrl: "https://rpc.hemi.network/rpc",
-  blockExplorer: "https://explorer.hemi.network",
+  blockExplorer: "https://explorer.hemi.xyz",
   nativeCurrency: {
     name: "ETH",
     symbol: "ETH",

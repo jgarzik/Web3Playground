@@ -60,22 +60,22 @@ export function isValidAddress(address: string): boolean {
  * Get transaction explorer URL
  */
 export function getTransactionUrl(txHash: string): string {
-  return `https://explorer.hemi.network/tx/${txHash}`;
+  return `https://explorer.hemi.xyz/tx/${txHash}`;
 }
 
 /**
  * Get address explorer URL
  */
 export function getAddressUrl(address: string): string {
-  return `https://explorer.hemi.network/address/${address}`;
+  return `https://explorer.hemi.xyz/address/${address}`;
 }
 
 /**
  * Get token explorer URL
  */
 export function getTokenUrl(contractAddress: string, tokenId?: string): string {
-  const baseUrl = `https://explorer.hemi.network/token/${contractAddress}`;
-  return tokenId ? `${baseUrl}?a=${tokenId}` : baseUrl;
+  const baseUrl = `https://explorer.hemi.xyz/token/${contractAddress}`;
+  return tokenId ? `${baseUrl}/instance/${tokenId}` : baseUrl;
 }
 
 /**
