@@ -214,6 +214,41 @@ export default function WentgePage() {
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
         
+        {/* About WENTGE */}
+        <Card>
+          <CardContent className="p-6">
+            <h2 className="text-xl font-semibold text-foreground mb-4">About WENTGE NFT</h2>
+            <div className="prose prose-invert max-w-none">
+              <p className="text-muted-foreground mb-4">
+                WENTGE (wen TGE) is a fully on-chain NFT collection deployed on Hemi mainnet with embedded JPEG images 
+                stored directly in the smart contract. Each wallet can mint one WENTGE NFT completely free while minting is enabled.
+              </p>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h3 className="text-foreground font-medium mb-2">Key Features:</h3>
+                  <ul className="text-muted-foreground space-y-1 text-sm">
+                    <li>• Free public mint (one per wallet)</li>
+                    <li>• Royalty-free NFT ownership</li>
+                    <li>• Full ERC-721 transferability</li>
+                    <li>• Base64-encoded JPEG metadata</li>
+                    <li>• Enhanced wallet compatibility</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="text-foreground font-medium mb-2">Technical Details:</h3>
+                  <ul className="text-muted-foreground space-y-1 text-sm">
+                    <li>• Deployed on Hemi Network (Chain ID 43111)</li>
+                    <li>• ERC721Enumerable + ERC721Burnable</li>
+                    <li>• On-chain image storage</li>
+                    <li>• OpenZeppelin 4.8.0 security standards</li>
+                    <li>• Event-driven minting and updates</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
         {/* Contract Information */}
         <Card>
           <CardHeader>

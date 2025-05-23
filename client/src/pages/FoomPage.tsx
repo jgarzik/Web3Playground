@@ -453,6 +453,41 @@ export default function FoomPage() {
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
         
+        {/* About Foom NFT */}
+        <Card>
+          <CardContent className="p-6">
+            <h2 className="text-xl font-semibold text-foreground mb-4">About Foom NFT</h2>
+            <div className="prose prose-invert max-w-none">
+              <p className="text-muted-foreground mb-4">
+                Foom NFT is a unique token-burn minting collection on Hemi mainnet where users create NFTs by burning 
+                HAIR and MAX tokens. Each NFT features deterministically generated attributes and fully on-chain JPEG images.
+              </p>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h3 className="text-foreground font-medium mb-2">Minting Process:</h3>
+                  <ul className="text-muted-foreground space-y-1 text-sm">
+                    <li>• Burn 3,000 HAIR tokens (~$0.30)</li>
+                    <li>• Burn 100 MAX tokens (~$0.20)</li>
+                    <li>• Receive unique Foom NFT</li>
+                    <li>• Deterministic attribute generation</li>
+                    <li>• Full ERC-721 transferability</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="text-foreground font-medium mb-2">Technical Features:</h3>
+                  <ul className="text-muted-foreground space-y-1 text-sm">
+                    <li>• Base64-encoded on-chain images</li>
+                    <li>• ERC721Enumerable + ERC721Burnable</li>
+                    <li>• Royalty-free ownership</li>
+                    <li>• Token ID-based unique attributes</li>
+                    <li>• OpenZeppelin 4.8.0 security</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
         {/* Contract Information */}
         <Card>
           <CardHeader>
