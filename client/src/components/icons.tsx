@@ -10,6 +10,11 @@ interface IconProps {
   size?: number;
 }
 
+const defaultProps: IconProps = {
+  className: "",
+  size: 24
+};
+
 export const WalletIcon = ({ className = "", size = 24 }: IconProps) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
     <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4" />
