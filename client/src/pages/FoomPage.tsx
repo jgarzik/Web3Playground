@@ -132,9 +132,6 @@ export default function FoomPage() {
     if (!hairContract || !maxContract || !address || !foomContract) return;
 
     try {
-      setIsLoading(true);
-      updateStepStatus(1, 'active');
-
       // Get required amounts
       const hairFee = await foomContract.HAIR_TKN_FEE();
       const maxFee = await foomContract.MAX_TKN_FEE();
@@ -160,34 +157,14 @@ export default function FoomPage() {
         hasBalance: maxBal.gte(maxFee),
         hasAllowance: maxAllow.gte(maxFee)
       });
-
-      updateStepStatus(1, 'complete');
       
-      // Check if we need approvals
-      if (!hairAllow.gte(hairFee)) {
-        updateStepStatus(2, 'pending');
-        setCurrentStep(1);
-      } else if (!maxAllow.gte(maxFee)) {
-        updateStepStatus(2, 'complete');
-        updateStepStatus(3, 'pending');
-        setCurrentStep(2);
-      } else {
-        updateStepStatus(2, 'complete');
-        updateStepStatus(3, 'complete');
-        updateStepStatus(4, 'pending');
-        setCurrentStep(3);
-      }
-
     } catch (error) {
       console.error("Error checking balances:", error);
-      updateStepStatus(1, 'error');
       toast({
         title: "Error",
         description: "Failed to check token balances",
         variant: "destructive",
       });
-    } finally {
-      setIsLoading(false);
     }
   };
 
