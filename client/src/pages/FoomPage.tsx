@@ -519,8 +519,7 @@ export default function FoomPage() {
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">Fee Required:</span>
                   <span className="font-semibold text-foreground">
-                    {console.log('HAIR Debug:', { requiredHair, type: typeof requiredHair, formatted: formatTokenAmountWithCommas(requiredHair, 2) })}
-                    {requiredHair && requiredHair !== '0' ? formatTokenAmountWithCommas(requiredHair, 2) : '3,000.00'}
+                    {formatTokenAmountWithCommas(requiredHair || '3000', 2)}
                   </span>
                 </div>
               </div>
@@ -550,8 +549,7 @@ export default function FoomPage() {
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">Fee Required:</span>
                   <span className="font-semibold text-foreground">
-                    {console.log('MAX Debug:', { requiredMax, type: typeof requiredMax, formatted: formatTokenAmountWithCommas(requiredMax, 2) })}
-                    {requiredMax && requiredMax !== '0' ? formatTokenAmountWithCommas(requiredMax, 2) : '100.00'}
+                    {formatTokenAmountWithCommas(requiredMax || '100', 2)}
                   </span>
                 </div>
               </div>
