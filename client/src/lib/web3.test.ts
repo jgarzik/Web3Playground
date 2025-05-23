@@ -10,6 +10,7 @@
 
 import { describe, it, expect } from 'vitest';
 import { formatTokenAmountWithCommas } from './web3';
+import { FOOM_REQUIREMENTS } from './contracts';
 
 describe('formatTokenAmountWithCommas', () => {
   
@@ -91,5 +92,11 @@ describe('formatTokenAmountWithCommas', () => {
     // Test required amounts
     expect(formatTokenAmountWithCommas('3000')).toBe('3,000.00');
     expect(formatTokenAmountWithCommas('100')).toBe('100.00');
+  });
+
+  it('should format the EXACT constants used in FoomPage component', () => {
+    // Test the precise constants from contracts.ts that FoomPage uses
+    expect(formatTokenAmountWithCommas(FOOM_REQUIREMENTS.HAIR_AMOUNT_RAW, 2)).toBe('3,000.00');
+    expect(formatTokenAmountWithCommas(FOOM_REQUIREMENTS.MAX_AMOUNT_RAW, 2)).toBe('100.00');
   });
 });
