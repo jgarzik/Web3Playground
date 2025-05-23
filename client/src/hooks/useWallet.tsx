@@ -1,8 +1,10 @@
 /**
  * Wallet Hook
  * 
- * Provides wallet connection state and functions for the entire application.
- * Handles MetaMask and WalletConnect V2 integration with Hemi network.
+ * Manages Web3 wallet connections and blockchain interactions for Jeff's Hacker Haven.
+ * Provides React context for wallet state, handles MetaMask integration, and manages
+ * automatic network switching to Hemi mainnet (Chain ID 43111). Includes event
+ * listeners for account changes, network switches, and disconnection handling.
  */
 
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";

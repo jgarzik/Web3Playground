@@ -1,11 +1,13 @@
 /**
  * Foom NFT Page Component
  * 
- * Handles complex multi-step minting process for Foom NFTs including:
- * - Token balance checking (HAIR and MAX)
- * - Token approval flow
- * - NFT minting with token burn
- * - Display of owned NFTs
+ * Manages sophisticated token-burn NFT minting on Hemi mainnet. Features include:
+ * - Multi-step guided minting process (balance check → approvals → mint)
+ * - Real-time HAIR and MAX token balance validation
+ * - ERC20 token approval workflow with transaction tracking
+ * - NFT minting by burning 3,000 HAIR + 100 MAX tokens
+ * - Display of user's Foom NFTs with dynamic attributes
+ * - Progress tracking with visual step indicators
  */
 
 import { useState, useEffect } from "react";

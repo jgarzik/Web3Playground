@@ -1,16 +1,17 @@
 /**
  * Contract Definitions
  * 
- * Contains contract addresses, ABIs, and configuration for WENTGE, Foom,
- * and token contracts on the Hemi blockchain.
+ * Contains contract addresses, ABIs, and network configuration for smart contracts
+ * deployed on Hemi mainnet (Chain ID 43111). Includes WENTGE NFT, Foom NFT,
+ * and ERC20 token contracts (HAIR, MAX).
  */
 
-// Contract addresses on Hemi network
+// Contract addresses and ABIs on Hemi mainnet (Chain ID 43111)
 export const CONTRACTS = {
   WENTGE: {
     address: "0x005E2c2a327cEBE03409221cb37Abf4911AFF791",
     abi: [
-      // WENTGE contract ABI derived from WenTgeNft.sol
+      // WENTGE NFT contract ABI - free mint (one per wallet)
       "function mint() external",
       "function balanceOf(address owner) view returns (uint256)",
       "function tokenOfOwnerByIndex(address owner, uint256 index) view returns (uint256)",
@@ -26,7 +27,7 @@ export const CONTRACTS = {
   FOOM: {
     address: "0xc519C8bf8952325340e29415FfFa3F675e14bcD3",
     abi: [
-      // Foom contract ABI derived from Foom.sol
+      // Foom NFT contract ABI - requires burning HAIR + MAX tokens
       "function mint() external",
       "function balanceOf(address owner) view returns (uint256)",
       "function tokenOfOwnerByIndex(address owner, uint256 index) view returns (uint256)",
@@ -40,11 +41,12 @@ export const CONTRACTS = {
       "event Minted(address indexed to, uint256 tokenId)"
     ]
   },
+  // ERC20 token contracts required for Foom NFT minting
   HAIR: {
-    address: "0x5B774f563C902FA7b203FB7029ed6eD4Ce274705"
+    address: "0x5B774f563C902FA7b203FB7029ed6eD4Ce274705"  // HAIR token (3,000 required)
   },
   MAX: {
-    address: "0xc8fc18299043e0C2D36C630fcD933db0c6f17042"
+    address: "0xc8fc18299043e0C2D36C630fcD933db0c6f17042"   // MAX token (100 required)
   }
 };
 
@@ -62,7 +64,7 @@ export const ERC20_ABI = [
   "event Approval(address indexed owner, address indexed spender, uint256 value)"
 ];
 
-// Network configuration
+// Hemi mainnet configuration (Chain ID 43111)
 export const HEMI_NETWORK = {
   chainId: 43111,
   name: "Hemi Network",

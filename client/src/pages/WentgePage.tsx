@@ -1,10 +1,12 @@
 /**
  * WENTGE NFT Page Component
  * 
- * Handles viewing and minting of WENTGE NFTs. Features:
- * - Free minting (one per wallet)
- * - Display of owned NFTs
- * - Contract information display
+ * Manages WENTGE NFT interactions on Hemi mainnet. Features include:
+ * - Free minting (one NFT per wallet address)
+ * - Real-time eligibility checking
+ * - Display of user's owned WENTGE NFTs with metadata
+ * - Direct links to Hemi blockchain explorer
+ * - Wallet connection and network validation
  */
 
 import { useState, useEffect } from "react";

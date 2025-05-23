@@ -1,8 +1,10 @@
 /**
  * Home Page Component
  * 
- * Main landing page featuring navigation cards for WENTGE and Foom NFT contracts.
- * Displays hero section, project cards, getting started guide, and network information.
+ * Landing page for Jeff's Hacker Haven - a Web3 development playground.
+ * Features navigation cards for NFT contracts, wallet connection interface,
+ * getting started guide, and Hemi network integration. Designed to showcase
+ * smart contract interactions across multiple blockchain networks.
  */
 
 import { Link } from "wouter";
