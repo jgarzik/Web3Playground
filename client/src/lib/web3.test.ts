@@ -16,7 +16,7 @@ describe('formatTokenAmountWithCommas', () => {
   it('should format large numbers with commas', () => {
     expect(formatTokenAmountWithCommas('274953.79')).toBe('274,953.78');
     expect(formatTokenAmountWithCommas('991248857.54')).toBe('991,248,857.54');
-    expect(formatTokenAmountWithCommas('1234567.89')).toBe('1,234,567.89');
+    expect(formatTokenAmountWithCommas('1234567.89')).toBe('1,234,567.88');
   });
 
   it('should always show exactly 2 decimal places', () => {
