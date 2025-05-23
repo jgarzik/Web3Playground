@@ -169,6 +169,72 @@ export default function FoomPage() {
   };
 
   /**
+   * Check token balances and allowances for minting process (with step management)
+   */
+  const checkTokenBalancesForMinting = async () => {
+    if (!hairContract || !maxContract || !address || !foomContract) return;
+
+    try {
+      setIsLoading(true);
+      updateStepStatus(1, 'active');
+
+      // Get required amounts
+      const hairFee = await foomContract.HAIR_TKN_FEE();
+      const maxFee = await foomContract.MAX_TKN_FEE();
+
+      // Check HAIR balance and allowance
+      const hairBal = await hairContract.balanceOf(address);
+      const hairAllow = await hairContract.allowance(address, CONTRACTS.FOOM.address);
+      
+      setHairBalance({
+        balance: ethers.utils.formatEther(hairBal),
+        allowance: ethers.utils.formatEther(hairAllow),
+        hasBalance: hairBal.gte(hairFee),
+        hasAllowance: hairAllow.gte(hairFee)
+      });
+
+      // Check MAX balance and allowance
+      const maxBal = await maxContract.balanceOf(address);
+      const maxAllow = await maxContract.allowance(address, CONTRACTS.FOOM.address);
+      
+      setMaxBalance({
+        balance: ethers.utils.formatEther(maxBal),
+        allowance: ethers.utils.formatEther(maxAllow),
+        hasBalance: maxBal.gte(maxFee),
+        hasAllowance: maxAllow.gte(maxFee)
+      });
+
+      updateStepStatus(1, 'complete');
+      
+      // Check if we need approvals and set up next steps
+      if (!hairAllow.gte(hairFee)) {
+        updateStepStatus(2, 'pending');
+        setCurrentStep(1);
+      } else if (!maxAllow.gte(maxFee)) {
+        updateStepStatus(2, 'complete');
+        updateStepStatus(3, 'pending');
+        setCurrentStep(2);
+      } else {
+        updateStepStatus(2, 'complete');
+        updateStepStatus(3, 'complete');
+        updateStepStatus(4, 'pending');
+        setCurrentStep(3);
+      }
+
+    } catch (error) {
+      console.error("Error checking balances:", error);
+      updateStepStatus(1, 'error');
+      toast({
+        title: "Error",
+        description: "Failed to check token balances",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  /**
    * Approve HAIR token spending
    */
   const approveHair = async () => {
@@ -408,7 +474,7 @@ export default function FoomPage() {
     }
 
     initializeMintSteps();
-    await checkTokenBalances();
+    await checkTokenBalancesForMinting();
   };
 
   // Load data when wallet connects
