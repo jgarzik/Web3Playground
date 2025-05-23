@@ -52,8 +52,8 @@ export const CONTRACTS = {
 
 // Foom NFT minting requirements (hardcoded contract constants)
 export const FOOM_REQUIREMENTS = {
-  HAIR_AMOUNT: '3,000.00',
-  MAX_AMOUNT: '100.00'
+  HAIR_AMOUNT_RAW: '3000',
+  MAX_AMOUNT_RAW: '100'
 };
 
 // Standard ERC20 ABI for token interactions

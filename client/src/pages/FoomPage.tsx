@@ -519,7 +519,7 @@ export default function FoomPage() {
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">Fee Required:</span>
                   <span className="font-semibold text-foreground">
-                    {formatTokenAmountWithCommas('3000', 2)}
+                    {formatTokenAmountWithCommas(FOOM_REQUIREMENTS.HAIR_AMOUNT_RAW, 2)}
                   </span>
                 </div>
               </div>
@@ -549,7 +549,7 @@ export default function FoomPage() {
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">Fee Required:</span>
                   <span className="font-semibold text-foreground">
-                    {formatTokenAmountWithCommas('100', 2)}
+                    {formatTokenAmountWithCommas(FOOM_REQUIREMENTS.MAX_AMOUNT_RAW, 2)}
                   </span>
                 </div>
               </div>
