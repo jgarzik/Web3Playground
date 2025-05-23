@@ -565,7 +565,6 @@ export default function FoomPage() {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-foreground">HAIR Token</h3>
-                  <p className="text-sm text-muted-foreground">Required: {requiredHair} HAIR</p>
                 </div>
               </div>
               <div className="space-y-2">
@@ -578,11 +577,9 @@ export default function FoomPage() {
                   </span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-muted-foreground">Allowance:</span>
-                  <span className={`font-semibold ${
-                    hairBalance.hasAllowance ? 'text-green-400' : 'text-yellow-400'
-                  }`}>
-                    {parseFloat(hairBalance.allowance).toFixed(2)}
+                  <span className="text-muted-foreground">Fee Required:</span>
+                  <span className="font-semibold text-foreground">
+                    {requiredHair}
                   </span>
                 </div>
               </div>
@@ -598,7 +595,6 @@ export default function FoomPage() {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-foreground">MAX Token</h3>
-                  <p className="text-sm text-muted-foreground">Required: {requiredMax} MAX</p>
                 </div>
               </div>
               <div className="space-y-2">
@@ -611,11 +607,9 @@ export default function FoomPage() {
                   </span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-muted-foreground">Allowance:</span>
-                  <span className={`font-semibold ${
-                    maxBalance.hasAllowance ? 'text-green-400' : 'text-yellow-400'
-                  }`}>
-                    {parseFloat(maxBalance.allowance).toFixed(2)}
+                  <span className="text-muted-foreground">Fee Required:</span>
+                  <span className="font-semibold text-foreground">
+                    {requiredMax}
                   </span>
                 </div>
               </div>
