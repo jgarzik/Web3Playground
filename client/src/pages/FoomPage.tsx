@@ -112,18 +112,14 @@ export default function FoomPage() {
    * Load required token amounts from contract
    */
   const loadRequiredAmounts = async () => {
-    if (!foomContract || !hairContract || !maxContract) return;
+    if (!foomContract) return;
 
     try {
       const hairFee = await foomContract.HAIR_TKN_FEE();
       const maxFee = await foomContract.MAX_TKN_FEE();
       
-      // Get token decimals for proper formatting
-      const hairDecimals = await hairContract.decimals();
-      const maxDecimals = await maxContract.decimals();
-      
-      setRequiredHair(ethers.utils.formatUnits(hairFee, hairDecimals));
-      setRequiredMax(ethers.utils.formatUnits(maxFee, maxDecimals));
+      setRequiredHair(ethers.utils.formatEther(hairFee));
+      setRequiredMax(ethers.utils.formatEther(maxFee));
     } catch (error) {
       console.error("Error loading required amounts:", error);
     }
@@ -133,38 +129,57 @@ export default function FoomPage() {
    * Check token balances and allowances
    */
   const checkTokenBalances = async () => {
-    if (!hairContract || !maxContract || !address || !foomContract) return;
+    if (!hairContract || !maxContract || !address || !foomContract) {
+      console.log('Missing contracts or address:', { 
+        hairContract: !!hairContract, 
+        maxContract: !!maxContract, 
+        address, 
+        foomContract: !!foomContract 
+      });
+      return;
+    }
 
     try {
       setIsLoading(true);
       updateStepStatus(1, 'active');
 
+      console.log('Checking balances for address:', address);
+      console.log('Contract addresses:', {
+        hair: CONTRACTS.HAIR.address,
+        max: CONTRACTS.MAX.address,
+        foom: CONTRACTS.FOOM.address
+      });
+
       // Get required amounts
       const hairFee = await foomContract.HAIR_TKN_FEE();
       const maxFee = await foomContract.MAX_TKN_FEE();
 
-      // Get token decimals for proper formatting
-      const hairDecimals = await hairContract.decimals();
-      const maxDecimals = await maxContract.decimals();
-
       // Check HAIR balance and allowance
+      console.log('Calling HAIR balanceOf...', address);
       const hairBal = await hairContract.balanceOf(address);
+      console.log('HAIR balance (raw):', hairBal.toString());
+      
       const hairAllow = await hairContract.allowance(address, CONTRACTS.FOOM.address);
+      console.log('HAIR allowance (raw):', hairAllow.toString());
       
       setHairBalance({
-        balance: ethers.utils.formatUnits(hairBal, hairDecimals),
-        allowance: ethers.utils.formatUnits(hairAllow, hairDecimals),
+        balance: ethers.utils.formatEther(hairBal),
+        allowance: ethers.utils.formatEther(hairAllow),
         hasBalance: hairBal.gte(hairFee),
         hasAllowance: hairAllow.gte(hairFee)
       });
 
       // Check MAX balance and allowance
+      console.log('Calling MAX balanceOf...', address);
       const maxBal = await maxContract.balanceOf(address);
+      console.log('MAX balance (raw):', maxBal.toString());
+      
       const maxAllow = await maxContract.allowance(address, CONTRACTS.FOOM.address);
+      console.log('MAX allowance (raw):', maxAllow.toString());
       
       setMaxBalance({
-        balance: ethers.utils.formatUnits(maxBal, maxDecimals),
-        allowance: ethers.utils.formatUnits(maxAllow, maxDecimals),
+        balance: ethers.utils.formatEther(maxBal),
+        allowance: ethers.utils.formatEther(maxAllow),
         hasBalance: maxBal.gte(maxFee),
         hasAllowance: maxAllow.gte(maxFee)
       });
