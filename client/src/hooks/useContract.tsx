@@ -31,14 +31,16 @@ export function useContract(
         setError(null);
 
         if (!address || !abi) {
-          throw new Error('Contract address and ABI are required');
+          setContract(null);
+          return;
         }
 
         if (!provider) {
-          throw new Error('No provider available');
+          setContract(null);
+          return;
         }
 
-        // Create contract instance with signer if available, otherwise use provider for read-only
+        // Only create contract if we have a provider
         const contractInstance = new ethers.Contract(
           address,
           abi,
