@@ -504,7 +504,7 @@ export default function FoomPage() {
                   <span className="text-white font-bold">H</span>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-foreground">🚨 HAIR Token UPDATED 🚨</h3>
+                  <h3 className="text-lg font-semibold text-foreground">HAIR Token</h3>
                 </div>
               </div>
               <div className="space-y-2">
@@ -519,12 +519,7 @@ export default function FoomPage() {
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">Fee Required:</span>
                   <span className="font-semibold text-foreground">
-                    {(() => {
-                      console.log('HAIR constant type:', typeof FOOM_REQUIREMENTS.HAIR_AMOUNT_RAW, 'value:', FOOM_REQUIREMENTS.HAIR_AMOUNT_RAW);
-                      const result = formatTokenAmountWithCommas(FOOM_REQUIREMENTS.HAIR_AMOUNT_RAW, 2);
-                      console.log('HAIR result:', result);
-                      return result;
-                    })()}
+                    {formatTokenAmountWithCommas(FOOM_REQUIREMENTS.HAIR_AMOUNT_RAW, 2)}
                   </span>
                 </div>
               </div>
