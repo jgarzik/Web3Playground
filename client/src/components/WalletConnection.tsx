@@ -151,7 +151,7 @@ export default function WalletConnection() {
             <DialogHeader>
               <DialogTitle>Connect Wallet</DialogTitle>
               <DialogDescription>
-                Choose a wallet to connect to the Hemi Playground
+                Choose a wallet to connect to Jeff's Hacker Haven
               </DialogDescription>
             </DialogHeader>
             

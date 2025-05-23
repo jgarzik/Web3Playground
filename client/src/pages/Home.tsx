@@ -29,8 +29,8 @@ export default function Home() {
                 </div>
               </div>
               <div>
-                <h1 className="text-xl font-bold text-foreground">Hemi Playground</h1>
-                <p className="text-xs text-muted-foreground">Web3 NFT Hub</p>
+                <h1 className="text-xl font-bold text-foreground">Jeff's Hacker Haven</h1>
+                <p className="text-xs text-muted-foreground">Web3 Development Playground</p>
               </div>
             </div>
             
@@ -56,11 +56,10 @@ export default function Home() {
         {/* Hero Section */}
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Welcome to <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Hemi Playground</span>
+            Welcome to <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Jeff's Hacker Haven</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Explore and interact with cutting-edge NFT contracts on the Hemi blockchain. 
-            Mint unique digital assets and discover the future of decentralized creativity.
+            A cutting-edge Web3 development playground for exploring smart contracts, minting NFTs, and experimenting with blockchain technologies across multiple networks.
           </p>
           
           {/* Network Indicator */}
@@ -228,7 +227,7 @@ export default function Home() {
               <span className="text-muted-foreground">Built on Hemi Network</span>
             </div>
             <div className="text-center mt-6 pt-6 border-t border-border md:border-t-0 md:mt-0 md:pt-0">
-              <p className="text-muted-foreground text-sm">© 2024 Hemi Playground. Open source web3 application.</p>
+              <p className="text-muted-foreground text-sm">© 2025 Garzik Group LLC</p>
             </div>
           </div>
         </div>
