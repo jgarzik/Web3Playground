@@ -147,7 +147,7 @@ export interface ContractEvent {
 
 export interface MintEvent extends ContractEvent {
   event: 'Minted';
-  args: {
+  args: [string, ethers.BigNumber] & {
     to: string;
     tokenId: ethers.BigNumber;
   };
