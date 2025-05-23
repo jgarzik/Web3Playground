@@ -436,11 +436,12 @@ export default function FoomPage() {
 
   // Load data when wallet connects
   useEffect(() => {
-    if (isConnected && foomContract && !foomLoading) {
+    if (isConnected && foomContract && hairContract && maxContract && !foomLoading) {
       loadRequiredAmounts();
       loadUserNFTs();
+      checkTokenBalances(); // Load balances when wallet connects
     }
-  }, [isConnected, foomContract, foomLoading, address]);
+  }, [isConnected, foomContract, hairContract, maxContract, foomLoading, address]);
 
   // Initialize steps on mount
   useEffect(() => {
