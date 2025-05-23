@@ -488,35 +488,6 @@ export default function FoomPage() {
           </CardContent>
         </Card>
 
-        {/* Contract Information */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center space-x-2">
-              <span>Contract Information</span>
-              <a 
-                href={`https://explorer.hemi.network/address/${CONTRACTS.FOOM.address}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:text-primary/80"
-              >
-                <ExternalLink className="w-4 h-4" />
-              </a>
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="grid md:grid-cols-2 gap-4 text-sm">
-              <div>
-                <span className="text-muted-foreground">Contract Address:</span>
-                <p className="font-mono text-primary break-all">{CONTRACTS.FOOM.address}</p>
-              </div>
-              <div>
-                <span className="text-muted-foreground">Network:</span>
-                <p className="text-foreground">Hemi (43111)</p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
         {/* Token Balances */}
         <div className="grid md:grid-cols-2 gap-6">
           {/* HAIR Token Balance */}
@@ -723,6 +694,35 @@ export default function FoomPage() {
                 </p>
               </div>
             )}
+          </CardContent>
+        </Card>
+
+        {/* Contract Information */}
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center space-x-2">
+              <span>Contract Information</span>
+              <a 
+                href={`https://explorer.hemi.xyz/address/${CONTRACTS.FOOM.address}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:text-primary/80"
+              >
+                <ExternalLink className="w-4 h-4" />
+              </a>
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="grid md:grid-cols-2 gap-4 text-sm">
+              <div>
+                <span className="text-muted-foreground">Contract Address:</span>
+                <p className="font-mono text-primary break-all">{CONTRACTS.FOOM.address}</p>
+              </div>
+              <div>
+                <span className="text-muted-foreground">Network:</span>
+                <p className="text-foreground">Hemi (43111)</p>
+              </div>
+            </div>
           </CardContent>
         </Card>
       </main>

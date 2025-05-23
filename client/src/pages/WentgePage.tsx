@@ -249,35 +249,6 @@ export default function WentgePage() {
           </CardContent>
         </Card>
 
-        {/* Contract Information */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center space-x-2">
-              <span>Contract Information</span>
-              <a 
-                href={`https://explorer.hemi.network/address/${CONTRACTS.WENTGE.address}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:text-primary/80"
-              >
-                <ExternalLink className="w-4 h-4" />
-              </a>
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="grid md:grid-cols-2 gap-4 text-sm">
-              <div>
-                <span className="text-muted-foreground">Contract Address:</span>
-                <p className="font-mono text-primary break-all">{CONTRACTS.WENTGE.address}</p>
-              </div>
-              <div>
-                <span className="text-muted-foreground">Network:</span>
-                <p className="text-foreground">Hemi (43111)</p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
         {/* Mint Section */}
         <Card>
           <CardHeader>
@@ -389,6 +360,35 @@ export default function WentgePage() {
                 </p>
               </div>
             )}
+          </CardContent>
+        </Card>
+
+        {/* Contract Information */}
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center space-x-2">
+              <span>Contract Information</span>
+              <a 
+                href={`https://explorer.hemi.xyz/address/${CONTRACTS.WENTGE.address}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:text-primary/80"
+              >
+                <ExternalLink className="w-4 h-4" />
+              </a>
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="grid md:grid-cols-2 gap-4 text-sm">
+              <div>
+                <span className="text-muted-foreground">Contract Address:</span>
+                <p className="font-mono text-primary break-all">{CONTRACTS.WENTGE.address}</p>
+              </div>
+              <div>
+                <span className="text-muted-foreground">Network:</span>
+                <p className="text-foreground">Hemi (43111)</p>
+              </div>
+            </div>
           </CardContent>
         </Card>
       </main>
