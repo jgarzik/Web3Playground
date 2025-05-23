@@ -25,7 +25,7 @@ import { ethers } from "ethers";
 import WalletConnection from "@/components/WalletConnection";
 import LoadingModal from "@/components/LoadingModal";
 import NFTCard from "@/components/NFTCard";
-import { CONTRACTS, ERC20_ABI } from "@/lib/contracts";
+import { CONTRACTS, ERC20_ABI, FOOM_REQUIREMENTS } from "@/lib/contracts";
 import { formatTokenAmountWithCommas } from "@/lib/web3";
 
 interface TokenBalance {
@@ -519,7 +519,7 @@ export default function FoomPage() {
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">Fee Required:</span>
                   <span className="font-semibold text-foreground">
-                    3,000.00
+                    {FOOM_REQUIREMENTS.HAIR_AMOUNT}
                   </span>
                 </div>
               </div>
@@ -549,7 +549,7 @@ export default function FoomPage() {
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">Fee Required:</span>
                   <span className="font-semibold text-foreground">
-                    100.00
+                    {FOOM_REQUIREMENTS.MAX_AMOUNT}
                   </span>
                 </div>
               </div>
