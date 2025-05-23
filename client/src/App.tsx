@@ -16,7 +16,6 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/wentge" component={WentgePage} />
       <Route path="/foom" component={FoomPage} />
-      <Route path="/foom-test" component={FoomPage} />
       <Route component={NotFound} />
     </Switch>
   );

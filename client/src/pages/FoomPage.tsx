@@ -518,8 +518,8 @@ export default function FoomPage() {
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">Fee Required:</span>
-                  <span className="font-semibold text-red-500">
-                    🔥 COMPONENT UPDATED! 🔥
+                  <span className="font-semibold text-foreground">
+                    {formatTokenAmountWithCommas(FOOM_REQUIREMENTS.HAIR_AMOUNT_RAW, 2)}
                   </span>
                 </div>
               </div>
@@ -549,10 +549,7 @@ export default function FoomPage() {
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">Fee Required:</span>
                   <span className="font-semibold text-foreground">
-                    {(() => {
-                      console.log('MAX formatting:', FOOM_REQUIREMENTS.MAX_AMOUNT_RAW, 'result:', formatTokenAmountWithCommas(FOOM_REQUIREMENTS.MAX_AMOUNT_RAW, 2));
-                      return formatTokenAmountWithCommas(FOOM_REQUIREMENTS.MAX_AMOUNT_RAW, 2);
-                    })()}
+                    {formatTokenAmountWithCommas(FOOM_REQUIREMENTS.MAX_AMOUNT_RAW, 2)}
                   </span>
                 </div>
               </div>
