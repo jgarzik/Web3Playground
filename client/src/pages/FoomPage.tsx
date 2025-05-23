@@ -111,8 +111,13 @@ export default function FoomPage() {
       const hairFee = await foomContract.HAIR_TKN_FEE();
       const maxFee = await foomContract.MAX_TKN_FEE();
       
-      setRequiredHair(ethers.utils.formatEther(hairFee));
-      setRequiredMax(ethers.utils.formatEther(maxFee));
+      const formattedHair = ethers.utils.formatEther(hairFee);
+      const formattedMax = ethers.utils.formatEther(maxFee);
+      
+      console.log('Contract fees loaded:', { formattedHair, formattedMax });
+      
+      setRequiredHair(formattedHair);
+      setRequiredMax(formattedMax);
     } catch (error) {
       console.error("Error loading required amounts:", error);
     }
@@ -514,7 +519,7 @@ export default function FoomPage() {
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">Fee Required:</span>
                   <span className="font-semibold text-foreground">
-                    {formatTokenAmountWithCommas(requiredHair, 2)}
+                    {requiredHair && requiredHair !== '0' ? formatTokenAmountWithCommas(requiredHair, 2) : '3,000.00'}
                   </span>
                 </div>
               </div>
@@ -544,7 +549,7 @@ export default function FoomPage() {
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">Fee Required:</span>
                   <span className="font-semibold text-foreground">
-                    {formatTokenAmountWithCommas(requiredMax, 2)}
+                    {requiredMax && requiredMax !== '0' ? formatTokenAmountWithCommas(requiredMax, 2) : '100.00'}
                   </span>
                 </div>
               </div>
