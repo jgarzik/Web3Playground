@@ -514,7 +514,7 @@ export default function FoomPage() {
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">Fee Required:</span>
                   <span className="font-semibold text-foreground">
-                    {requiredHair}
+                    {formatTokenAmountWithCommas(requiredHair, 2)}
                   </span>
                 </div>
               </div>
@@ -544,7 +544,7 @@ export default function FoomPage() {
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">Fee Required:</span>
                   <span className="font-semibold text-foreground">
-                    {requiredMax}
+                    {formatTokenAmountWithCommas(requiredMax, 2)}
                   </span>
                 </div>
               </div>
