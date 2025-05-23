@@ -44,7 +44,6 @@ export default function WentgePage() {
     if (!wentgeContract || !address) return;
 
     try {
-      setIsLoading(true);
       const balance = await wentgeContract.balanceOf(address);
       setCanMint(balance.toString() === "0");
       setHasCheckedEligibility(true);
@@ -55,8 +54,6 @@ export default function WentgePage() {
         description: "Failed to check mint eligibility",
         variant: "destructive",
       });
-    } finally {
-      setIsLoading(false);
     }
   };
 
@@ -67,7 +64,6 @@ export default function WentgePage() {
     if (!wentgeContract || !address) return;
 
     try {
-      setIsLoading(true);
       const balance = await wentgeContract.balanceOf(address);
       const nfts = [];
 
@@ -92,8 +88,6 @@ export default function WentgePage() {
         description: "Failed to load your NFTs",
         variant: "destructive",
       });
-    } finally {
-      setIsLoading(false);
     }
   };
 
