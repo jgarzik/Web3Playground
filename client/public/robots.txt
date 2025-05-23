@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://jeffs-hacker-haven.replit.app/sitemap.xml
+
+# Common crawl delays
+Crawl-delay: 1
+
+# Block access to private areas (if any)
+Disallow: /api/
+Disallow: /_vite/
+Disallow: /node_modules/
