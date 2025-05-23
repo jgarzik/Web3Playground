@@ -44,6 +44,11 @@ export function formatTokenAmountWithCommas(
   try {
     const number = parseFloat(amount);
     
+    // Handle invalid numbers
+    if (isNaN(number)) {
+      return '0.00';
+    }
+    
     // Truncate to specified decimal places without rounding
     const multiplier = Math.pow(10, displayDecimals);
     const truncated = Math.floor(number * multiplier) / multiplier;
