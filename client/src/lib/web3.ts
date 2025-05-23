@@ -35,6 +35,30 @@ export function formatTokenAmount(
 }
 
 /**
+ * Format token amount with commas and precise decimal truncation (no rounding)
+ */
+export function formatTokenAmountWithCommas(
+  amount: string, 
+  displayDecimals = 2
+): string {
+  try {
+    const number = parseFloat(amount);
+    
+    // Truncate to specified decimal places without rounding
+    const multiplier = Math.pow(10, displayDecimals);
+    const truncated = Math.floor(number * multiplier) / multiplier;
+    
+    // Format with commas and fixed decimal places
+    return truncated.toLocaleString('en-US', {
+      minimumFractionDigits: displayDecimals,
+      maximumFractionDigits: displayDecimals
+    });
+  } catch (error) {
+    return '0.00';
+  }
+}
+
+/**
  * Parse token amount from display format to wei
  */
 export function parseTokenAmount(amount: string, decimals = 18): string {

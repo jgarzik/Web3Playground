@@ -26,6 +26,7 @@ import WalletConnection from "@/components/WalletConnection";
 import LoadingModal from "@/components/LoadingModal";
 import NFTCard from "@/components/NFTCard";
 import { CONTRACTS, ERC20_ABI } from "@/lib/contracts";
+import { formatTokenAmountWithCommas } from "@/lib/web3";
 
 interface TokenBalance {
   balance: string;
@@ -507,7 +508,7 @@ export default function FoomPage() {
                   <span className={`font-semibold ${
                     hairBalance.hasBalance ? 'text-green-400' : 'text-red-400'
                   }`}>
-                    {parseFloat(hairBalance.balance).toFixed(2)}
+                    {formatTokenAmountWithCommas(hairBalance.balance, 2)}
                   </span>
                 </div>
                 <div className="flex justify-between items-center">
@@ -537,7 +538,7 @@ export default function FoomPage() {
                   <span className={`font-semibold ${
                     maxBalance.hasBalance ? 'text-green-400' : 'text-red-400'
                   }`}>
-                    {parseFloat(maxBalance.balance).toFixed(2)}
+                    {formatTokenAmountWithCommas(maxBalance.balance, 2)}
                   </span>
                 </div>
                 <div className="flex justify-between items-center">
