@@ -504,7 +504,7 @@ export default function FoomPage() {
                   <span className="text-white font-bold">H</span>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-foreground">HAIR Token</h3>
+                  <h3 className="text-lg font-semibold text-foreground">🚨 HAIR Token UPDATED 🚨</h3>
                 </div>
               </div>
               <div className="space-y-2">
