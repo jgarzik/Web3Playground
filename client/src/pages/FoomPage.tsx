@@ -129,38 +129,19 @@ export default function FoomPage() {
    * Check token balances and allowances
    */
   const checkTokenBalances = async () => {
-    if (!hairContract || !maxContract || !address || !foomContract) {
-      console.log('Missing contracts or address:', { 
-        hairContract: !!hairContract, 
-        maxContract: !!maxContract, 
-        address, 
-        foomContract: !!foomContract 
-      });
-      return;
-    }
+    if (!hairContract || !maxContract || !address || !foomContract) return;
 
     try {
       setIsLoading(true);
       updateStepStatus(1, 'active');
-
-      console.log('Checking balances for address:', address);
-      console.log('Contract addresses:', {
-        hair: CONTRACTS.HAIR.address,
-        max: CONTRACTS.MAX.address,
-        foom: CONTRACTS.FOOM.address
-      });
 
       // Get required amounts
       const hairFee = await foomContract.HAIR_TKN_FEE();
       const maxFee = await foomContract.MAX_TKN_FEE();
 
       // Check HAIR balance and allowance
-      console.log('Calling HAIR balanceOf...', address);
       const hairBal = await hairContract.balanceOf(address);
-      console.log('HAIR balance (raw):', hairBal.toString());
-      
       const hairAllow = await hairContract.allowance(address, CONTRACTS.FOOM.address);
-      console.log('HAIR allowance (raw):', hairAllow.toString());
       
       setHairBalance({
         balance: ethers.utils.formatEther(hairBal),
@@ -170,12 +151,8 @@ export default function FoomPage() {
       });
 
       // Check MAX balance and allowance
-      console.log('Calling MAX balanceOf...', address);
       const maxBal = await maxContract.balanceOf(address);
-      console.log('MAX balance (raw):', maxBal.toString());
-      
       const maxAllow = await maxContract.allowance(address, CONTRACTS.FOOM.address);
-      console.log('MAX allowance (raw):', maxAllow.toString());
       
       setMaxBalance({
         balance: ethers.utils.formatEther(maxBal),
