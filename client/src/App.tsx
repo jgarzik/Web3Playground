@@ -10,6 +10,7 @@ import FoomPage from "./pages/FoomPage";
 import NotFound from "./pages/not-found";
 
 function Router() {
+  console.log('Router rendering...');
   return (
     <Switch>
       <Route path="/" component={Home} />
@@ -21,16 +22,21 @@ function Router() {
 }
 
 function App() {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <WalletProvider>
-          <Toaster />
-          <Router />
-        </WalletProvider>
-      </TooltipProvider>
-    </QueryClientProvider>
-  );
+  try {
+    return (
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <WalletProvider>
+            <Toaster />
+            <Router />
+          </WalletProvider>
+        </TooltipProvider>
+      </QueryClientProvider>
+    );
+  } catch (error) {
+    console.error('App render error:', error);
+    return <div>App Error: {String(error)}</div>;
+  }
 }
 
 export default App;
