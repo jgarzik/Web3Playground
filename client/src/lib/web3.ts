@@ -1,7 +1,10 @@
 /**
  * Web3 Utilities
  * 
- * Helper functions for Web3 interactions, formatting, and blockchain operations.
+ * Comprehensive utility functions for blockchain interactions in Jeff's Hacker Haven.
+ * Provides address formatting, token amount conversion, transaction monitoring,
+ * error parsing, and direct integration with Hemi mainnet explorer URLs.
+ * All functions are optimized for Hemi blockchain (Chain ID 43111) operations.
  */
 
 import { ethers } from "ethers";

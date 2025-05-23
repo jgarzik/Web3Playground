@@ -102,7 +102,7 @@ export default function FoomPage() {
         title: "Mint NFT",
         description: "Burn tokens and mint your Foom NFT",
         status: 'pending',
-        action: executeMinnt
+        action: executeMint
       }
     ];
     setMintSteps(steps);
@@ -316,7 +316,7 @@ export default function FoomPage() {
   /**
    * Execute the final mint transaction
    */
-  const executeMinnt = async () => {
+  const executeMint = async () => {
     if (!foomContract) return;
 
     try {

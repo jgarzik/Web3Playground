@@ -1,11 +1,14 @@
 /**
  * Wallet Connection Component
  * 
- * Handles wallet connection UI and functionality including:
- * - Connect/disconnect wallet
- * - Display connection status
- * - Network switching for Hemi chain
- * - MetaMask and WalletConnect V2 support
+ * Provides comprehensive wallet connection interface for Jeff's Hacker Haven.
+ * Features include:
+ * - MetaMask connection with automatic Hemi mainnet switching
+ * - Connection status display with network validation
+ * - Wallet address formatting and clipboard copy functionality
+ * - Direct links to Hemi blockchain explorer
+ * - Dropdown menu with account management options
+ * - Error handling and user-friendly notifications
  */
 
 import { useState } from "react";

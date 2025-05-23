@@ -1,8 +1,14 @@
 /**
  * NFT Card Component
  * 
- * Displays individual NFT information including image, metadata, and attributes.
- * Handles base64 image display and metadata parsing.
+ * Renders individual NFT cards with comprehensive metadata display.
+ * Features include:
+ * - Base64 encoded image rendering from on-chain data
+ * - JSON metadata parsing from tokenURI (base64 or HTTP)
+ * - Dynamic attribute display with proper formatting
+ * - Collapsible attribute sections for better UX
+ * - Direct links to Hemi blockchain explorer
+ * - Error handling for missing images or metadata
  */
 
 import { useState, useEffect } from "react";
