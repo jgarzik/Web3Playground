@@ -112,14 +112,18 @@ export default function FoomPage() {
    * Load required token amounts from contract
    */
   const loadRequiredAmounts = async () => {
-    if (!foomContract) return;
+    if (!foomContract || !hairContract || !maxContract) return;
 
     try {
       const hairFee = await foomContract.HAIR_TKN_FEE();
       const maxFee = await foomContract.MAX_TKN_FEE();
       
-      setRequiredHair(ethers.utils.formatEther(hairFee));
-      setRequiredMax(ethers.utils.formatEther(maxFee));
+      // Get token decimals for proper formatting
+      const hairDecimals = await hairContract.decimals();
+      const maxDecimals = await maxContract.decimals();
+      
+      setRequiredHair(ethers.utils.formatUnits(hairFee, hairDecimals));
+      setRequiredMax(ethers.utils.formatUnits(maxFee, maxDecimals));
     } catch (error) {
       console.error("Error loading required amounts:", error);
     }
@@ -139,13 +143,17 @@ export default function FoomPage() {
       const hairFee = await foomContract.HAIR_TKN_FEE();
       const maxFee = await foomContract.MAX_TKN_FEE();
 
+      // Get token decimals for proper formatting
+      const hairDecimals = await hairContract.decimals();
+      const maxDecimals = await maxContract.decimals();
+
       // Check HAIR balance and allowance
       const hairBal = await hairContract.balanceOf(address);
       const hairAllow = await hairContract.allowance(address, CONTRACTS.FOOM.address);
       
       setHairBalance({
-        balance: ethers.utils.formatEther(hairBal),
-        allowance: ethers.utils.formatEther(hairAllow),
+        balance: ethers.utils.formatUnits(hairBal, hairDecimals),
+        allowance: ethers.utils.formatUnits(hairAllow, hairDecimals),
         hasBalance: hairBal.gte(hairFee),
         hasAllowance: hairAllow.gte(hairFee)
       });
@@ -155,8 +163,8 @@ export default function FoomPage() {
       const maxAllow = await maxContract.allowance(address, CONTRACTS.FOOM.address);
       
       setMaxBalance({
-        balance: ethers.utils.formatEther(maxBal),
-        allowance: ethers.utils.formatEther(maxAllow),
+        balance: ethers.utils.formatUnits(maxBal, maxDecimals),
+        allowance: ethers.utils.formatUnits(maxAllow, maxDecimals),
         hasBalance: maxBal.gte(maxFee),
         hasAllowance: maxAllow.gte(maxFee)
       });
