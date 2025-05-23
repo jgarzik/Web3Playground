@@ -518,8 +518,8 @@ export default function FoomPage() {
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">Fee Required:</span>
-                  <span className="font-semibold text-foreground">
-                    3,000.00 TEST
+                  <span className="font-semibold text-red-500">
+                    🔥 COMPONENT UPDATED! 🔥
                   </span>
                 </div>
               </div>
