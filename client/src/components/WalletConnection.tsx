@@ -28,7 +28,7 @@ import {
   DialogTitle, 
   DialogDescription 
 } from "@/components/ui/dialog";
-import { Wallet, ChevronDown, ExternalLink, Copy, CheckCircle, AlertTriangle } from "lucide-react";
+import { WalletIcon, ChevronDownIconIcon, ExternalLinkIconIcon, CopyIconIcon, CheckCircleIcon, AlertTriangleIconIcon } from "./icons";
 import { useWallet } from "@/hooks/useWallet";
 import { useToast } from "@/hooks/use-toast";
 
@@ -91,7 +91,7 @@ export default function WalletConnection() {
   };
 
   /**
-   * Copy address to clipboard
+   * CopyIcon address to clipboard
    */
   const copyAddress = async () => {
     if (!address) return;
@@ -104,7 +104,7 @@ export default function WalletConnection() {
       });
     } catch (error) {
       toast({
-        title: "Copy Failed",
+        title: "CopyIcon Failed",
         description: "Failed to copy address to clipboard",
         variant: "destructive",
       });
@@ -144,7 +144,7 @@ export default function WalletConnection() {
           onClick={() => setShowConnectModal(true)}
           className="glow-button text-white px-6 py-2.5 rounded-xl font-medium flex items-center space-x-2"
         >
-          <Wallet className="w-4 h-4" />
+          <WalletIcon className="w-4 h-4" />
           <span>Connect Wallet</span>
         </Button>
 
@@ -173,7 +173,7 @@ export default function WalletConnection() {
                   <div className="font-semibold">MetaMask</div>
                   <div className="text-sm text-muted-foreground">Connect using browser extension</div>
                 </div>
-                <ChevronDown className="w-4 h-4 text-muted-foreground" />
+                <ChevronDownIcon className="w-4 h-4 text-muted-foreground" />
               </Button>
 
               {/* WalletConnect */}
@@ -190,14 +190,14 @@ export default function WalletConnection() {
                   <div className="font-semibold">WalletConnect</div>
                   <div className="text-sm text-muted-foreground">Scan with mobile wallet</div>
                 </div>
-                <ChevronDown className="w-4 h-4 text-muted-foreground" />
+                <ChevronDownIcon className="w-4 h-4 text-muted-foreground" />
               </Button>
             </div>
 
             {/* Network Notice */}
             <div className="p-4 bg-yellow-500/10 border border-yellow-500/20 rounded-xl mt-4">
               <div className="flex items-start space-x-3">
-                <AlertTriangle className="w-5 h-5 text-yellow-400 mt-0.5" />
+                <AlertTriangleIcon className="w-5 h-5 text-yellow-400 mt-0.5" />
                 <div className="text-sm">
                   <div className="font-medium text-yellow-400">Hemi Network Only</div>
                   <div className="text-yellow-300 mt-1">
@@ -223,7 +223,7 @@ export default function WalletConnection() {
           size="sm"
           className="px-3 py-1.5 bg-red-500/10 border-red-500/20 text-red-400 hover:bg-red-500/20"
         >
-          <AlertTriangle className="w-3 h-3 mr-2" />
+          <AlertTriangleIcon className="w-3 h-3 mr-2" />
           Wrong Network
         </Button>
       )}
@@ -241,7 +241,7 @@ export default function WalletConnection() {
               }`} />
               <span className="font-mono text-sm">{formatAddress(address!)}</span>
             </div>
-            <ChevronDown className="w-4 h-4" />
+            <ChevronDownIcon className="w-4 h-4" />
           </Button>
         </DropdownMenuTrigger>
         
@@ -278,8 +278,8 @@ export default function WalletConnection() {
           
           {/* Actions */}
           <DropdownMenuItem onClick={copyAddress} className="cursor-pointer">
-            <Copy className="w-4 h-4 mr-2" />
-            Copy Address
+            <CopyIcon className="w-4 h-4 mr-2" />
+            CopyIcon Address
           </DropdownMenuItem>
           
           <DropdownMenuItem asChild>
@@ -289,7 +289,7 @@ export default function WalletConnection() {
               rel="noopener noreferrer"
               className="cursor-pointer"
             >
-              <ExternalLink className="w-4 h-4 mr-2" />
+              <ExternalLinkIcon className="w-4 h-4 mr-2" />
               View on Explorer
             </a>
           </DropdownMenuItem>
