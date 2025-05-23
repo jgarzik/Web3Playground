@@ -519,10 +519,7 @@ export default function FoomPage() {
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">Fee Required:</span>
                   <span className="font-semibold text-foreground">
-                    {(() => {
-                      console.log('HAIR formatting:', FOOM_REQUIREMENTS.HAIR_AMOUNT_RAW, 'result:', formatTokenAmountWithCommas(FOOM_REQUIREMENTS.HAIR_AMOUNT_RAW, 2));
-                      return formatTokenAmountWithCommas(FOOM_REQUIREMENTS.HAIR_AMOUNT_RAW, 2);
-                    })()}
+                    3,000.00 TEST
                   </span>
                 </div>
               </div>
