@@ -20,6 +20,7 @@ import { ArrowLeft, Flame, ExternalLink, Loader2, CheckCircle, AlertCircle, Cloc
 import { useWallet } from "@/hooks/useWallet";
 import { useContract } from "@/hooks/useContract";
 import { useToast } from "@/hooks/use-toast";
+import { useTokenBalances } from "@/hooks/useTokenBalances";
 import { ethers } from "ethers";
 import WalletConnection from "@/components/WalletConnection";
 import LoadingModal from "@/components/LoadingModal";
@@ -47,18 +48,6 @@ export default function FoomPage() {
   
   const [isLoading, setIsLoading] = useState(false);
   const [userNFTs, setUserNFTs] = useState<any[]>([]);
-  const [hairBalance, setHairBalance] = useState<TokenBalance>({
-    balance: '0',
-    allowance: '0',
-    hasBalance: false,
-    hasAllowance: false
-  });
-  const [maxBalance, setMaxBalance] = useState<TokenBalance>({
-    balance: '0',
-    allowance: '0',
-    hasBalance: false,
-    hasAllowance: false
-  });
   const [mintSteps, setMintSteps] = useState<MintStep[]>([]);
   const [currentStep, setCurrentStep] = useState(0);
   const [requiredHair, setRequiredHair] = useState<string>('0');
@@ -71,6 +60,9 @@ export default function FoomPage() {
   );
   const { contract: hairContract } = useContract(CONTRACTS.HAIR.address, ERC20_ABI);
   const { contract: maxContract } = useContract(CONTRACTS.MAX.address, ERC20_ABI);
+
+  // Token balance hook
+  const { hairBalance, maxBalance, checkBalances } = useTokenBalances(requiredHair, requiredMax);
 
   /**
    * Initialize mint steps
@@ -125,48 +117,7 @@ export default function FoomPage() {
     }
   };
 
-  /**
-   * Check token balances and allowances
-   */
-  const checkTokenBalances = async () => {
-    if (!hairContract || !maxContract || !address || !foomContract) return;
 
-    try {
-      // Get required amounts
-      const hairFee = await foomContract.HAIR_TKN_FEE();
-      const maxFee = await foomContract.MAX_TKN_FEE();
-
-      // Check HAIR balance and allowance
-      const hairBal = await hairContract.balanceOf(address);
-      const hairAllow = await hairContract.allowance(address, CONTRACTS.FOOM.address);
-      
-      setHairBalance({
-        balance: ethers.utils.formatEther(hairBal),
-        allowance: ethers.utils.formatEther(hairAllow),
-        hasBalance: hairBal.gte(hairFee),
-        hasAllowance: hairAllow.gte(hairFee)
-      });
-
-      // Check MAX balance and allowance
-      const maxBal = await maxContract.balanceOf(address);
-      const maxAllow = await maxContract.allowance(address, CONTRACTS.FOOM.address);
-      
-      setMaxBalance({
-        balance: ethers.utils.formatEther(maxBal),
-        allowance: ethers.utils.formatEther(maxAllow),
-        hasBalance: maxBal.gte(maxFee),
-        hasAllowance: maxAllow.gte(maxFee)
-      });
-      
-    } catch (error) {
-      console.error("Error checking balances:", error);
-      toast({
-        title: "Error",
-        description: "Failed to check token balances",
-        variant: "destructive",
-      });
-    }
-  };
 
   /**
    * Check token balances and allowances for minting process (with step management)
@@ -178,39 +129,16 @@ export default function FoomPage() {
       setIsLoading(true);
       updateStepStatus(1, 'active');
 
-      // Get required amounts
-      const hairFee = await foomContract.HAIR_TKN_FEE();
-      const maxFee = await foomContract.MAX_TKN_FEE();
-
-      // Check HAIR balance and allowance
-      const hairBal = await hairContract.balanceOf(address);
-      const hairAllow = await hairContract.allowance(address, CONTRACTS.FOOM.address);
-      
-      setHairBalance({
-        balance: ethers.utils.formatEther(hairBal),
-        allowance: ethers.utils.formatEther(hairAllow),
-        hasBalance: hairBal.gte(hairFee),
-        hasAllowance: hairAllow.gte(hairFee)
-      });
-
-      // Check MAX balance and allowance
-      const maxBal = await maxContract.balanceOf(address);
-      const maxAllow = await maxContract.allowance(address, CONTRACTS.FOOM.address);
-      
-      setMaxBalance({
-        balance: ethers.utils.formatEther(maxBal),
-        allowance: ethers.utils.formatEther(maxAllow),
-        hasBalance: maxBal.gte(maxFee),
-        hasAllowance: maxAllow.gte(maxFee)
-      });
+      // Update balances using the hook
+      await checkBalances();
 
       updateStepStatus(1, 'complete');
       
       // Check if we need approvals and set up next steps
-      if (!hairAllow.gte(hairFee)) {
+      if (!hairBalance.hasAllowance) {
         updateStepStatus(2, 'pending');
         setCurrentStep(1);
-      } else if (!maxAllow.gte(maxFee)) {
+      } else if (!maxBalance.hasAllowance) {
         updateStepStatus(2, 'complete');
         updateStepStatus(3, 'pending');
         setCurrentStep(2);
@@ -389,7 +317,7 @@ export default function FoomPage() {
 
       // Refresh data
       await loadUserNFTs();
-      await checkTokenBalances();
+      await checkBalances();
 
     } catch (error: any) {
       console.error("Mint error:", error);
@@ -479,12 +407,12 @@ export default function FoomPage() {
 
   // Load data when wallet connects
   useEffect(() => {
-    if (isConnected && foomContract && hairContract && maxContract && !foomLoading) {
+    if (isConnected && foomContract && !foomLoading) {
       loadRequiredAmounts();
       loadUserNFTs();
-      checkTokenBalances(); // Load balances when wallet connects
+      checkBalances(); // Load balances when wallet connects
     }
-  }, [isConnected, foomContract, hairContract, maxContract, foomLoading, address]);
+  }, [isConnected, foomContract, foomLoading, address, checkBalances]);
 
   // Initialize steps on mount
   useEffect(() => {
