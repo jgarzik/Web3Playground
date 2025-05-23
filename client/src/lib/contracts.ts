@@ -66,8 +66,8 @@ export const ERC20_ABI = [
 export const HEMI_NETWORK = {
   chainId: 43111,
   name: "Hemi Network",
-  rpcUrl: "https://testnet.rpc.hemi.network/rpc",
-  blockExplorer: "https://testnet.explorer.hemi.network",
+  rpcUrl: "https://rpc.hemi.network/rpc",
+  blockExplorer: "https://explorer.hemi.network",
   nativeCurrency: {
     name: "ETH",
     symbol: "ETH",

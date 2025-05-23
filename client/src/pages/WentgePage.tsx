@@ -224,7 +224,7 @@ export default function WentgePage() {
             <CardTitle className="flex items-center space-x-2">
               <span>Contract Information</span>
               <a 
-                href={`https://testnet.explorer.hemi.network/address/${CONTRACTS.WENTGE.address}`}
+                href={`https://explorer.hemi.network/address/${CONTRACTS.WENTGE.address}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary hover:text-primary/80"

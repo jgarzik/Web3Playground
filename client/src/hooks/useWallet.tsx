@@ -25,13 +25,13 @@ const HEMI_CHAIN_ID = 43111;
 const HEMI_CHAIN_CONFIG = {
   chainId: '0xA867', // 43111 in hex
   chainName: 'Hemi Network',
-  rpcUrls: ['https://testnet.rpc.hemi.network/rpc'],
+  rpcUrls: ['https://rpc.hemi.network/rpc'],
   nativeCurrency: {
     name: 'ETH',
     symbol: 'ETH',
     decimals: 18
   },
-  blockExplorerUrls: ['https://testnet.explorer.hemi.network/']
+  blockExplorerUrls: ['https://explorer.hemi.network/']
 };
 
 export function WalletProvider({ children }: { children: ReactNode }) {

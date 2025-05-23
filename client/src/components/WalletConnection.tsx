@@ -281,7 +281,7 @@ export default function WalletConnection() {
           
           <DropdownMenuItem asChild>
             <a
-              href={`https://testnet.explorer.hemi.network/address/${address}`}
+              href={`https://explorer.hemi.network/address/${address}`}
               target="_blank"
               rel="noopener noreferrer"
               className="cursor-pointer"

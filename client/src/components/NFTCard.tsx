@@ -170,7 +170,7 @@ export default function NFTCard({
               className="flex-1"
             >
               <a
-                href={`https://testnet.explorer.hemi.network/token/${contractAddress}?a=${tokenId}`}
+                href={`https://explorer.hemi.network/token/${contractAddress}?a=${tokenId}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
