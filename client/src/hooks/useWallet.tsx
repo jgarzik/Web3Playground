@@ -33,7 +33,7 @@ const HEMI_CHAIN_CONFIG = {
     symbol: 'ETH',
     decimals: 18
   },
-  blockExplorerUrls: ['https://explorer.hemi.network/']
+  blockExplorerUrls: ['https://explorer.hemi.xyz/']
 };
 
 export function WalletProvider({ children }: { children: ReactNode }) {
