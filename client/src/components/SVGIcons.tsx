@@ -13,8 +13,8 @@ interface IconProps {
 export const AlertCircleIcon = ({ className = "", size = 24 }: IconProps) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
     <circle cx="12" cy="12" r="10" />
-    <path d="m15 9-6 6" />
-    <path d="m9 9 6 6" />
+    <path d="M12 8v4" />
+    <path d="m12 16 .01 0" />
   </svg>
 );
 
