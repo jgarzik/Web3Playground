@@ -28,7 +28,8 @@ import {
   DialogTitle, 
   DialogDescription 
 } from "@/components/ui/dialog";
-import { Wallet, ChevronDown, ExternalLink, Copy, CheckCircle, AlertTriangle } from "lucide-react";
+import { Wallet, ExternalLink, Copy, CheckCircle } from "lucide-react";
+import { ChevronDownIcon, AlertTriangleIcon } from "@/components/SVGIcons";
 import { useWallet } from "@/hooks/useWallet";
 import { useToast } from "@/hooks/use-toast";
 

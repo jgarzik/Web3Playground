@@ -54,11 +54,11 @@ export default function ToastNotification({
   const getIcon = () => {
     switch (type) {
       case 'success':
-        return <CheckCircle className="w-5 h-5 text-green-400" />;
+        return <CheckCircleIcon className="w-5 h-5 text-green-400" size={20} />;
       case 'error':
         return <AlertCircleIcon className="w-5 h-5 text-red-400" size={20} />;
       case 'warning':
-        return <AlertCircle className="w-5 h-5 text-yellow-400" />;
+        return <AlertCircleIcon className="w-5 h-5 text-yellow-400" size={20} />;
       default:
         return <Info className="w-5 h-5 text-blue-400" />;
     }
