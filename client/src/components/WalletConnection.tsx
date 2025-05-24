@@ -174,7 +174,7 @@ export default function WalletConnection() {
                   <div className="font-semibold">MetaMask</div>
                   <div className="text-sm text-muted-foreground">Connect using browser extension</div>
                 </div>
-                <ChevronDown className="w-4 h-4 text-muted-foreground" />
+                <ChevronDownIcon className="w-4 h-4 text-muted-foreground" size={16} />
               </Button>
 
               {/* WalletConnect */}
@@ -191,14 +191,14 @@ export default function WalletConnection() {
                   <div className="font-semibold">WalletConnect</div>
                   <div className="text-sm text-muted-foreground">Scan with mobile wallet</div>
                 </div>
-                <ChevronDown className="w-4 h-4 text-muted-foreground" />
+                <ChevronDownIcon className="w-4 h-4 text-muted-foreground" size={16} />
               </Button>
             </div>
 
             {/* Network Notice */}
             <div className="p-4 bg-yellow-500/10 border border-yellow-500/20 rounded-xl mt-4">
               <div className="flex items-start space-x-3">
-                <AlertTriangle className="w-5 h-5 text-yellow-400 mt-0.5" />
+                <AlertTriangleIcon className="w-5 h-5 text-yellow-400 mt-0.5" size={20} />
                 <div className="text-sm">
                   <div className="font-medium text-yellow-400">Hemi Network Only</div>
                   <div className="text-yellow-300 mt-1">
@@ -224,7 +224,7 @@ export default function WalletConnection() {
           size="sm"
           className="px-3 py-1.5 bg-red-500/10 border-red-500/20 text-red-400 hover:bg-red-500/20"
         >
-          <AlertTriangle className="w-3 h-3 mr-2" />
+          <AlertTriangleIcon className="w-3 h-3 mr-2" size={12} />
           Wrong Network
         </Button>
       )}
@@ -242,7 +242,7 @@ export default function WalletConnection() {
               }`} />
               <span className="font-mono text-sm">{formatAddress(address!)}</span>
             </div>
-            <ChevronDown className="w-4 h-4" />
+            <ChevronDownIcon className="w-4 h-4" size={16} />
           </Button>
         </DropdownMenuTrigger>
         
