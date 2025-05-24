@@ -8,7 +8,7 @@
 import { useEffect, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Info, X } from "lucide-react";
+import { InfoIcon, XIcon } from "@/components/SVGIcons";
 import { CheckCircleIcon, AlertCircleIcon } from "@/components/SVGIcons";
 import { cn } from "@/lib/utils";
 
@@ -60,7 +60,7 @@ export default function ToastNotification({
       case 'warning':
         return <AlertCircleIcon className="w-5 h-5 text-yellow-400" size={20} />;
       default:
-        return <Info className="w-5 h-5 text-blue-400" />;
+        return <InfoIcon className="w-5 h-5 text-blue-400" size={20} />;
     }
   };
 
@@ -97,7 +97,7 @@ export default function ToastNotification({
           onClick={handleDismiss}
           className="h-6 w-6 p-0 text-muted-foreground hover:text-foreground"
         >
-          <X className="w-4 h-4" />
+          <XIcon className="w-4 h-4" size={16} />
         </Button>
       </div>
     </Card>

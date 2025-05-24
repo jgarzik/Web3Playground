@@ -15,7 +15,7 @@ import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Eye, EyeOff } from "lucide-react";
+import { EyeIcon, EyeOffIcon } from "@/components/SVGIcons";
 import { ExternalLinkIcon } from "./ExternalLinkIcon";
 
 interface NFTAttribute {
@@ -142,12 +142,12 @@ export default function NFTCard({
             >
               {showAttributes ? (
                 <>
-                  <EyeOff className="w-4 h-4 mr-2" />
+                  <EyeOffIcon className="w-4 h-4 mr-2" size={16} />
                   Hide Attributes
                 </>
               ) : (
                 <>
-                  <Eye className="w-4 h-4 mr-2" />
+                  <EyeIcon className="w-4 h-4 mr-2" size={16} />
                   View Attributes ({attributes.length})
                 </>
               )}

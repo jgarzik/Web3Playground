@@ -28,7 +28,7 @@ import {
   DialogTitle, 
   DialogDescription 
 } from "@/components/ui/dialog";
-import { Wallet, ExternalLink, Copy, CheckCircle } from "lucide-react";
+import { WalletIcon, ExternalLinkIcon, CopyIcon, CheckCircleIcon } from "@/components/SVGIcons";
 import { ChevronDownIcon, AlertTriangleIcon } from "@/components/SVGIcons";
 import { useWallet } from "@/hooks/useWallet";
 import { useToast } from "@/hooks/use-toast";
@@ -145,7 +145,7 @@ export default function WalletConnection() {
           onClick={() => setShowConnectModal(true)}
           className="glow-button text-white px-6 py-2.5 rounded-xl font-medium flex items-center space-x-2"
         >
-          <Wallet className="w-4 h-4" />
+          <WalletIcon className="w-4 h-4" size={16} />
           <span>Connect Wallet</span>
         </Button>
 
@@ -279,7 +279,7 @@ export default function WalletConnection() {
           
           {/* Actions */}
           <DropdownMenuItem onClick={copyAddress} className="cursor-pointer">
-            <Copy className="w-4 h-4 mr-2" />
+            <CopyIcon className="w-4 h-4 mr-2" size={16} />
             Copy Address
           </DropdownMenuItem>
           
