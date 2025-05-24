@@ -290,7 +290,7 @@ export default function WalletConnection() {
               rel="noopener noreferrer"
               className="cursor-pointer"
             >
-              <ExternalLink className="w-4 h-4 mr-2" />
+              <ExternalLinkIcon className="w-4 h-4 mr-2" size={16} />
               View on Explorer
             </a>
           </DropdownMenuItem>
