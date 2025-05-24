@@ -15,7 +15,8 @@ import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff } from "lucide-react";
+import { ExternalLinkIcon } from "./ExternalLinkIcon";
 
 interface NFTAttribute {
   trait_type: string;
@@ -180,7 +181,7 @@ export default function NFTCard({
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <ExternalLink className="w-4 h-4 mr-2" />
+                <ExternalLinkIcon className="w-4 h-4 mr-2" />
                 Explorer
               </a>
             </Button>
