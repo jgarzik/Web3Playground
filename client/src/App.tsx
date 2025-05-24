@@ -7,6 +7,7 @@ import { WalletProvider } from "./hooks/useWallet";
 import Home from "./pages/Home";
 import WentgePage from "./pages/WentgePage";
 import FoomPage from "./pages/FoomPage";
+import SVGTestPage from "./pages/SVGTestPage";
 import NotFound from "./pages/not-found";
 
 function Router() {
@@ -16,6 +17,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/wentge" component={WentgePage} />
       <Route path="/foom" component={FoomPage} />
+      <Route path="/svgtest" component={SVGTestPage} />
       <Route component={NotFound} />
     </Switch>
   );
