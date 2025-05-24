@@ -8,7 +8,8 @@
 import { useEffect, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, AlertCircle, Info, X } from "lucide-react";
+import { Info, X } from "lucide-react";
+import { CheckCircleIcon, AlertCircleIcon } from "@/components/SVGIcons";
 import { cn } from "@/lib/utils";
 
 interface ToastProps {
@@ -55,7 +56,7 @@ export default function ToastNotification({
       case 'success':
         return <CheckCircle className="w-5 h-5 text-green-400" />;
       case 'error':
-        return <AlertCircle className="w-5 h-5 text-red-400" />;
+        return <AlertCircleIcon className="w-5 h-5 text-red-400" size={20} />;
       case 'warning':
         return <AlertCircle className="w-5 h-5 text-yellow-400" />;
       default:
