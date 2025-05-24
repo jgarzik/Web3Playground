@@ -6,7 +6,7 @@
  */
 
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { Loader2 } from "lucide-react";
+import { Loader2Icon } from "@/components/SVGIcons";
 
 interface LoadingModalProps {
   title: string;
@@ -24,7 +24,7 @@ export default function LoadingModal({
       <DialogContent className="sm:max-w-md">
         <div className="text-center space-y-6 py-6">
           <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
-            <Loader2 className="w-8 h-8 text-primary animate-spin" />
+            <Loader2Icon className="w-8 h-8 text-primary animate-spin" size={32} />
           </div>
           
           <div className="space-y-2">
