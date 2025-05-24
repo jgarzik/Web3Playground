@@ -11,7 +11,6 @@ import SVGTestPage from "./pages/SVGTestPage";
 import NotFound from "./pages/not-found";
 
 function Router() {
-  console.log('Router rendering...');
   return (
     <Switch>
       <Route path="/" component={Home} />

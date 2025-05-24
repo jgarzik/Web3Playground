@@ -115,7 +115,7 @@ export default function FoomPage() {
       const formattedHair = ethers.utils.formatEther(hairFee);
       const formattedMax = ethers.utils.formatEther(maxFee);
       
-      console.log('Contract fees loaded:', { formattedHair, formattedMax });
+
       
       setRequiredHair(formattedHair);
       setRequiredMax(formattedMax);
