@@ -16,7 +16,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { ArrowLeft, Flame, ExternalLink, Loader2, CheckCircle, AlertCircle, Clock } from "lucide-react";
+import { Flame, ExternalLink, Loader2, CheckCircle, AlertCircle, Clock } from "lucide-react";
+import { ArrowLeftIcon } from "@/components/SVGIcons";
 import { useWallet } from "@/hooks/useWallet";
 import { useContract } from "@/hooks/useContract";
 import { useToast } from "@/hooks/use-toast";
@@ -437,7 +438,7 @@ export default function FoomPage() {
             <div className="flex items-center space-x-4">
               <Link href="/">
                 <Button variant="ghost" size="sm" className="p-2">
-                  <ArrowLeft className="w-4 h-4" />
+                  <ArrowLeftIcon className="w-4 h-4" size={16} />
                 </Button>
               </Link>
               <div className="flex items-center space-x-3">
